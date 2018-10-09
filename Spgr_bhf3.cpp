@@ -298,7 +298,7 @@ arma::vec loglik3(arma::vec par, arma::vec indexy,arma::vec &y,arma::mat &x,arma
 
 
 // [[Rcpp::export]]
-double BICc_bhf3(Rcpp::List obj, double c0=0.2)
+double BIC_bhf3(Rcpp::List obj)
 {
   arma::mat beta = obj("beta");
   arma::uvec group= obj("group");
@@ -307,8 +307,7 @@ double BICc_bhf3(Rcpp::List obj, double c0=0.2)
   int ncx =  beta.n_cols;
   int nobs = beta.n_rows;
   double ngest = ugroup.size();
-  double Cn = c0*log(log(nobs*ncx));
   
-  double bicvalue = -2*loglikvalue + Cn*log(nobs)*(ngest*ncx);
+  double bicvalue = -2*loglikvalue + log(nobs)*(ngest*ncx);
   return(bicvalue);
 }

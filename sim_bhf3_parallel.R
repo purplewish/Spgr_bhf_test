@@ -6,7 +6,9 @@ library(plyr)
 library(Matrix)
 library(doParallel) 
 library(foreach)
-sourceCpp("code/Spgr_bhf3.cpp")
+library(SpgrBHF)
+#sourceCpp("code/Spgr_bhf3.cpp")
+
 load("data/Cmat_popn.RData")
 ordermat <- getorder(Matrix(Cmatia))
 
@@ -196,14 +198,10 @@ subfun <- function(mm)
 
 betad15 <-  matrix(c(0.5,0.5,2,2,3.5,3.5),ncol=2,byrow = TRUE)
 
-sim1 <- sim_bhf3_parallel(beta = betad15,sdx = 1,mux = 1,sdv = 1,sde = 1,rate = 0.01,M = 1,popn = popn[,1:2],group = popn[,3])
-
-sim2 <- subfun(1)
-
-
 cl <- makeCluster(2)  
 registerDoParallel(cl)  
-sim3 <- foreach(mm=1:2,.packages=c("plyr","sae","Spgr")) %dopar% subfun(mm)
+sim3 <- foreach(mm=1:2,.packages=c("plyr","sae","Spgr","SpgrBHF")) %dopar% subfun(mm)
 stopCluster(cl) 
+
 
 

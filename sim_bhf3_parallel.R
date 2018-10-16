@@ -9,7 +9,7 @@ library(foreach)
 library(SpgrBHF)
 #sourceCpp("code/Spgr_bhf3.cpp")
 
-load("data/Cmat_popn.RData")
+load("../data/Cmat_popn.RData")
 ordermat <- getorder(Matrix(Cmatia))
 
 # BIC 

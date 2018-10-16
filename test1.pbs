@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#PBS -N test
+#PBS -l walltime=00:10:00
+#PBS -l nodes=1:ppn=8
+
+module load R
+
+cd $PBS_O_WORKDIR/
+
+Rscript sim_bhf3_parallel.R

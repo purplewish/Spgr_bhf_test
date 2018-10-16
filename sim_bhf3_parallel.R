@@ -202,6 +202,7 @@ cl <- makeCluster(2)
 registerDoParallel(cl)  
 sim3 <- foreach(mm=1:2,.packages=c("plyr","sae","Spgr","SpgrBHF")) %dopar% subfun(mm)
 stopCluster(cl) 
+save(sim3, file = "test.RData")
 
 
 

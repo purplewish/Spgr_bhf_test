@@ -1,2 +1,5 @@
 .pbs
 .RData
+.Rout
+.o*
+.e*

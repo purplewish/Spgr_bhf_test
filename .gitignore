@@ -1,6 +1,6 @@
-.pbs
+*.pbs
 *.RData
-.Rout
-.o*
-.e*
-.Rhistory
+*.Rout
+*.o*
+*.e*
+*.Rhistory

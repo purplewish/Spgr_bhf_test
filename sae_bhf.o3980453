@@ -1,0 +1,16 @@
+You are not in HEAD
+WARNING: ignoring environment value of R_HOME
+
+-----------------------
+Resources requested:
+nodes=1:ppn=28
+-----------------------
+Resources used:
+cput=67:18:10
+walltime=02:46:17
+mem=7.734GB
+vmem=0.930GB
+-----------------------
+Resource units charged (estimate):
+7.759 RUs
+-----------------------
